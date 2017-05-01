@@ -83,3 +83,16 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+/*
+|--------------------------------------------------------------------------
+| Purview type
+|--------------------------------------------------------------------------
+|
+| User Purview
+*/
+defined('PURVIEW_MEMBER') OR define('PURVIEW_MEMBER', 1);
+defined('PURVIEW_SERVICE') OR define('PURVIEW_SERVICE', 2);
+defined('PURVIEW_ADMIN') OR define('PURVIEW_ADMIN', 3);
+defined('PURVIEW_SUPERADMIN') OR define('PURVIEW_SUPERADMIN', 4);
