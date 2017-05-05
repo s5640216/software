@@ -88,14 +88,14 @@ class Login extends CI_Controller {
 		echo json_encode(array('status' => $status, 'message' => $message));
 	}
 	
-	function _check_passwd2($passwd,$passwd2){
+	private function _check_passwd2($passwd,$passwd2){
 		if($passwd == $passwd2)
 			return true;
 		else
 			return false;
 	}
 	
-	function _check_account($account){
+	private function _check_account($account){
 		$row_num = $this->registerModel->getUserInfo($account)->num_rows();
 		if($row_num == 0)
 			return true;
@@ -103,7 +103,7 @@ class Login extends CI_Controller {
 			return false;
 	}
 	
-	function _check_email($email){
+	private function _check_email($email){
 		$row_num = $this->registerModel->getUserInfobyEmail($email)->num_rows();
 		if($row_num == 0)
 			return true;
