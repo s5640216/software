@@ -296,7 +296,6 @@
 				success: function (res) {
 					if(res.status == "success"){
 						success_toast('註冊資訊', res.message);
-						android.showToast(res.message);
 						$('#login-form-link').click();
 						$("#register_form input[type='text']").val('');
 						// window.location = '<?=base_url()?>' + 'login/login';

@@ -2,11 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
-	protected $data = array();
+	
 	function __construct(){
 		parent::__construct();
 			date_default_timezone_set("Asia/Taipei");
-			$this->load->model('login/login_model', 'loginModel');
+			$this->load->model('account/account_model', 'accountModel');
 			$this->load->model('login/register_model', 'registerModel');
 			$this->_check_is_login();
 	}
@@ -24,7 +24,7 @@ class Login extends CI_Controller {
 		$account = $this->input->post('account');
 		$passwd = $this->input->post('passwd');
 		$passwd = md5($passwd);
-		$userInfo = $this->loginModel->getUserInfo($account)->row_array(); 
+		$userInfo = $this->accountModel->getUserInfo($account)->row_array(); 
 		if($userInfo['account'] == $account && $userInfo['passwd'] == $passwd){
 			$status = "success";
 			$this->session->set_userdata($userInfo);
