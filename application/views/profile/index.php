@@ -58,58 +58,125 @@
 										<td>性別:</td>
 										<td><?=$user['sex'];?></td>
 									</tr>
+									<tr>
+										<td>電話:</td>
+										<td><?=$user['phone'];?></td>
+									</tr>
+									<tr>
+										<td>Email:</td>
+										<td><?=$user['email'];?></td>
+									</tr>
 								</tbody>
 							</table>
-										  
-							<a href="#" class="btn btn-primary">修改密碼</a>
 						</div>
 					</div>
 				</div>
-				<!--<div class="panel-footer">
-					<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+				<div class="panel-footer">
+					<button class="btn btn-primary" data-toggle="modal" data-target="#ChangePasswdModal">修改密碼</button>
+					
 					<span class="pull-right">
-						<a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-						<a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+						<button class="btn btn-primary">修改個人資料</button>
 					</span>
-				</div>	-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="ChangePasswdModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">修改密碼</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-horizontal">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">舊密碼</label>
+						<div class="col-sm-10">
+							<input type="password" class="oldpasswd form-control" placeholder="請輸入舊密碼">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">新密碼</label>
+						<div class="col-sm-10">
+							<input type="password" class="newpasswd form-control" placeholder="請輸入新密碼">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">確認密碼</label>
+						<div class="col-sm-10">
+							<input type="password" class="newpasswd2 form-control" placeholder="請輸入確認密碼">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+				<button type="button" class="btn btn-primary" id="btnChangePasswd">修改</button>
 			</div>
 		</div>
 	</div>
 </div>
 	
-	<script>
-		$(document).ready(function() {
-    var panels = $('.user-infos');
-    var panelsButton = $('.dropdown-user');
-    panels.hide();
+<script>
+	$(document).ready(function() {
+		var panels = $('.user-infos');
+		var panelsButton = $('.dropdown-user');
+		panels.hide();
 
-    //Click dropdown
-    panelsButton.click(function() {
-        //get data-for attribute
-        var dataFor = $(this).attr('data-for');
-        var idFor = $(dataFor);
+		//Click dropdown
+		panelsButton.click(function() {
+			//get data-for attribute
+			var dataFor = $(this).attr('data-for');
+			var idFor = $(dataFor);
 
-        //current button
-        var currentButton = $(this);
-        idFor.slideToggle(400, function() {
-            //Completed slidetoggle
-            if(idFor.is(':visible'))
-            {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
-            }
-            else
-            {
-                currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
-            }
-        })
-    });
+			//current button
+			var currentButton = $(this);
+			idFor.slideToggle(400, function() {
+				//Completed slidetoggle
+				if(idFor.is(':visible'))
+				{
+					currentButton.html('<i class="glyphicon glyphicon-chevron-up text-muted"></i>');
+				}
+				else
+				{
+					currentButton.html('<i class="glyphicon glyphicon-chevron-down text-muted"></i>');
+				}
+			})
+		});
 
 
-    $('[data-toggle="tooltip"]').tooltip();
+		$('[data-toggle="tooltip"]').tooltip();
 
-    $('button').click(function(e) {
-        e.preventDefault();
-        alert("This is a demo.\n :-)");
-    });
-});
-	</script>
+		$('#btnChangePasswd').click(function(){
+			var oldpasswd = $('#ChangePasswdModal .oldpasswd').val();
+			var newpasswd = $('#ChangePasswdModal .newpasswd').val();
+			var newpasswd2 = $('#ChangePasswdModal .newpasswd2').val();
+			$.ajax({
+				url: '<?=base_url()?>profile/profile/change_passwd',
+				type: 'POST',
+				dataType: 'json',
+				data: {
+					oldpasswd: oldpasswd,
+					newpasswd: newpasswd,
+					newpasswd2: newpasswd2
+				},
+				success: function (res) {
+					if(res.status == 'success'){
+						success_toast('修改密碼', res.message);
+						$("#ChangePasswdModal input").val('');
+						$('#ChangePasswdModal').modal('hide');
+					} else {
+						error_toast('修改密碼', res.message);
+					}
+				}
+			});
+		})
+			
+		
+	});
+	
+	
+</script>

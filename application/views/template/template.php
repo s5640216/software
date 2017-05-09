@@ -29,6 +29,10 @@
 			text-align:center;
 			text-transform: capitalize;<!--定義單字的第一個字母大寫，其他字母小寫-->
 		}
+		body {
+			background-image:url('<?=base_url('assets/home/img/back-31.gif');?>');
+　			background-repeat:no-repeat;
+		}
 	</style>
 	<?
 		if(!$this->session->userdata('isLogin')){
@@ -36,8 +40,14 @@
 		} else {
 			switch($this->session->userdata('purview')){
 				case PURVIEW_MEMBER:
+					include("sidebar/member_sidebar.php");
+					break;
 				case PURVIEW_SERVICE:
+					include("sidebar/service_sidebar.php");
+					break;
 				case PURVIEW_ADMIN:
+					include("sidebar/admin_sidebar.php");
+					break;
 				case PURVIEW_SUPERADMIN:
 					include("sidebar/sidebar.php");
 					break;
