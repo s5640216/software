@@ -8,5 +8,4 @@ class Home extends CI_Controller {
 	{
 		$this->layout->view('home/home');
 	}
-	
 }

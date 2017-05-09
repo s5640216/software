@@ -29,6 +29,7 @@
 			text-align:center;
 			text-transform: capitalize;<!--定義單字的第一個字母大寫，其他字母小寫-->
 		}
+
 		body {
 			background-image:url('<?=base_url('assets/home/img/back-31.gif');?>');
 　			background-repeat:no-repeat;

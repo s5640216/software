@@ -10,9 +10,7 @@ class Profile extends common {
 	public function index() {
 		$uid = $this->session->userdata('uid');
 		$this->data['user'] = $this->accountModel->getUserInfo_by_uid($uid)->row_array();
-		// print_r($this->data['user'] );
 		$this->layout->view('profile/index', $this->data);
-		// echo json_encode($this->session->all_userdata());
 	}
 	
 	function change_passwd(){
@@ -51,8 +49,4 @@ class Profile extends common {
 		$message = "更改成功。";
 		echo json_encode(array('status' => $status, 'message' => $message));
 	}
-
-
-
-	
 }

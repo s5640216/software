@@ -120,6 +120,7 @@
 	</div>
 </div>
 	
+
 <script>
 	$(document).ready(function() {
 		var panels = $('.user-infos');
