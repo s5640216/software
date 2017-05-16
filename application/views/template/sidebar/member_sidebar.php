@@ -10,6 +10,9 @@
                 <a href="<?=base_url() . 'profile/profile'?>">個人資料</a>
             </li>
 			<li>
+                <a href="<?=base_url() . 'order/order/drop_order'?>">下訂單</a>
+            </li>
+			<li>
                 <a href="<?=base_url() . 'store/store'?>">店家資訊</a>
             </li>
 			<li>
