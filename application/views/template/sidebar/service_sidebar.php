@@ -13,6 +13,9 @@
                 <a href="<?=base_url() . 'store/store'?>">店家資訊</a>
             </li>
 			<li>
+                <a href="<?=base_url() . 'order/order/receive_order_view'?>">接收訂單</a>
+            </li>
+			<li>
                 <a href="<?=base_url() . 'order/order'?>">訂單紀錄</a>
             </li>
 			<li>
