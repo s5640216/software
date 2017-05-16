@@ -298,7 +298,8 @@
 						success_toast('註冊資訊', res.message);
 						$('#login-form-link').click();
 						$("#register_form input[type='text']").val('');
-						// window.location = '<?=base_url()?>' + 'login/login';
+						$("#register_form input[type='password']").val('');
+						$("#register_form input[type='email']").val('');
 					} else {
 						error_toast('註冊資訊', res.message);
 					}
@@ -325,8 +326,5 @@
 			return false;
 		}
 	}
-		function testf(){
-			
-		}
 </script>
 

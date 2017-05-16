@@ -7,5 +7,6 @@
 
 <!-- Custom -->
 <script src="<?=base_url('assets/common/common.js');?>" type="text/javascript"></script>
+<script src="<?=base_url('assets/common/city.js');?>" type="text/javascript"></script>
 
 
