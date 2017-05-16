@@ -12,7 +12,7 @@
 				<? foreach($orders->result() as $order): ?>
 					<tr>
 						<td><?=$order->name;?></td>
-						<td><?=$order->status;?></td>
+						<td><?=$this->CI->getOrderStatusString($order->status);?></td>
 						<td><?=date('Y/m/d H:i:s',strtotime($order->order_date));?></td>
 					</tr>
 				<? endforeach; ?>

@@ -43,8 +43,13 @@
 				data:{
 					order_id: order_id
 				},
-				success: function (res) {
-					
+				success: function (data) {
+					if(data.status == "success"){
+						success_toast(null, data.message);
+					} else if(data.status == "fail"){
+						error_toast(null, data.message);
+					}
+					_get_receive_order_list();
 				}
 			});
 		});

@@ -70,6 +70,9 @@
 
 <!-- Custom Theme JavaScript -->
     <script>
+		var base_url = function () {
+            return '<?=base_url()?>';
+        };
 	function logout(){
 		if(confirm("確定登出?")){
 			document.location.href= "<?=base_url();?>login/login/logout";

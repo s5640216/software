@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
+Source Server         : localhost
 Source Server Version : 50621
 Source Host           : localhost:3306
 Source Database       : software
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2017-05-09 14:08:50
+Date: 2017-05-16 14:28:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `taiwan_area` (
   `area_name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `zipcode` char(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`area_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=371 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of taiwan_area
@@ -226,7 +226,7 @@ INSERT INTO `taiwan_area` VALUES ('193', '12', '虎尾鎮', '632');
 INSERT INTO `taiwan_area` VALUES ('194', '12', '褒忠鄉', '634');
 INSERT INTO `taiwan_area` VALUES ('195', '12', '西螺鎮', '648');
 INSERT INTO `taiwan_area` VALUES ('196', '12', '麥寮鄉', '638');
-INSERT INTO `taiwan_area` VALUES ('197', '13', '', '600');
+INSERT INTO `taiwan_area` VALUES ('197', '13', '東區', '600');
 INSERT INTO `taiwan_area` VALUES ('198', '14', '中埔鄉', '606');
 INSERT INTO `taiwan_area` VALUES ('199', '14', '六腳鄉', '615');
 INSERT INTO `taiwan_area` VALUES ('200', '14', '大埔鄉', '607');
@@ -400,3 +400,4 @@ INSERT INTO `taiwan_area` VALUES ('367', '23', '北竿鄉', '210');
 INSERT INTO `taiwan_area` VALUES ('368', '23', '南竿鄉', '209');
 INSERT INTO `taiwan_area` VALUES ('369', '23', '東引鄉', '212');
 INSERT INTO `taiwan_area` VALUES ('370', '23', '莒光鄉', '211');
+INSERT INTO `taiwan_area` VALUES ('371', '13', '西區', '600');

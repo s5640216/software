@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 127.0.0.1
+Source Server         : localhost
 Source Server Version : 50621
 Source Host           : localhost:3306
 Source Database       : software
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50621
 File Encoding         : 65001
 
-Date: 2017-05-09 14:34:38
+Date: 2017-05-16 14:29:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,7 +37,7 @@ CREATE TABLE `accounts` (
 -- Records of accounts
 -- ----------------------------
 INSERT INTO `accounts` VALUES ('1', 'superadmin', '202cb962ac59075b964b07152d234b70', '超級管理員', '4', '男', 'superadmin@cc.c', null, '2017-05-09 14:34:04', '');
-INSERT INTO `accounts` VALUES ('2', 'admin', '202cb962ac59075b964b07152d234b70', '管理員', '3', '男', 'admin@cc.c', null, '2017-05-09 14:34:05', '');
+INSERT INTO `accounts` VALUES ('2', 'admin', '202cb962ac59075b964b07152d234b70', '管理員', '3', '男', 'admin@cc.c', null, '2017-05-14 13:43:22', '');
 INSERT INTO `accounts` VALUES ('3', 'service', '202cb962ac59075b964b07152d234b70', '服務員', '2', '男', 'service@cc.c', null, '2017-05-09 14:34:06', '');
 INSERT INTO `accounts` VALUES ('4', 'member', '202cb962ac59075b964b07152d234b70', '一般會員', '1', '男', 'member@cc.c', null, '2017-05-09 14:33:57', '');
 
@@ -83,8 +83,10 @@ CREATE TABLE `order` (
   `order_id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `receive_uid` int(11) DEFAULT NULL,
+  `city_id` int(11) DEFAULT NULL,
+  `area_id` int(11) DEFAULT NULL,
   `name` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `status` tinyint(4) DEFAULT NULL COMMENT '訂單狀態',
+  `status` tinyint(4) DEFAULT '1' COMMENT '訂單狀態\r\n1= 等待接收;\r\n2 = 處理中;\r\n3 = 運送中;\r\n4 = 完成;\r\n5 = 取消;',
   `order_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -171,7 +173,7 @@ CREATE TABLE `taiwan_area` (
   `area_name` varchar(255) CHARACTER SET utf8 NOT NULL,
   `zipcode` char(255) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`area_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=371 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of taiwan_area
@@ -372,7 +374,7 @@ INSERT INTO `taiwan_area` VALUES ('193', '12', '虎尾鎮', '632');
 INSERT INTO `taiwan_area` VALUES ('194', '12', '褒忠鄉', '634');
 INSERT INTO `taiwan_area` VALUES ('195', '12', '西螺鎮', '648');
 INSERT INTO `taiwan_area` VALUES ('196', '12', '麥寮鄉', '638');
-INSERT INTO `taiwan_area` VALUES ('197', '13', '', '600');
+INSERT INTO `taiwan_area` VALUES ('197', '13', '東區', '600');
 INSERT INTO `taiwan_area` VALUES ('198', '14', '中埔鄉', '606');
 INSERT INTO `taiwan_area` VALUES ('199', '14', '六腳鄉', '615');
 INSERT INTO `taiwan_area` VALUES ('200', '14', '大埔鄉', '607');
@@ -546,6 +548,7 @@ INSERT INTO `taiwan_area` VALUES ('367', '23', '北竿鄉', '210');
 INSERT INTO `taiwan_area` VALUES ('368', '23', '南竿鄉', '209');
 INSERT INTO `taiwan_area` VALUES ('369', '23', '東引鄉', '212');
 INSERT INTO `taiwan_area` VALUES ('370', '23', '莒光鄉', '211');
+INSERT INTO `taiwan_area` VALUES ('371', '13', '西區', '600');
 
 -- ----------------------------
 -- Table structure for `taiwan_city`
