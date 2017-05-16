@@ -96,3 +96,16 @@ defined('PURVIEW_MEMBER') OR define('PURVIEW_MEMBER', 1);
 defined('PURVIEW_SERVICE') OR define('PURVIEW_SERVICE', 2);
 defined('PURVIEW_ADMIN') OR define('PURVIEW_ADMIN', 3);
 defined('PURVIEW_SUPERADMIN') OR define('PURVIEW_SUPERADMIN', 4);
+
+/*
+|--------------------------------------------------------------------------
+| Order statuc type
+|--------------------------------------------------------------------------
+|
+| Order statuc
+*/
+defined('ORDER_WAIT') OR define('ORDER_WAIT', 1); //等待接收
+defined('ORDER_PROCESSED') OR define('ORDER_PROCESSED', 2); //處理中
+defined('ORDER_TRANSPORT') OR define('ORDER_TRANSPORT', 3); //運送中
+defined('ORDER_FINISH') OR define('ORDER_FINISH', 4); //訂單完成
+defined('ORDER_CANCEL') OR define('ORDER_CANCEL', 5); //訂單取消

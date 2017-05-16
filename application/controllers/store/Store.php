@@ -13,6 +13,22 @@ class Store extends common {
 	public function index() {
 		$this->layout->view('store/index');
 	}
+	
+	
+	public function ajax_get_store_list(){
+		$city_id = $this->input->post('city_id');
+		$area_id = $this->input->post('area_id');
+		$search_data = array('city_id' => $city_id, 'area_id' => $area_id);
+		$stores = $this->storeModel->getStore($search_data)->result_array();
+		echo json_encode($stores);
+	}
+	
+	public function ajax_get_store_product_list(){
+		$store_id = $this->input->post('store_id');
+		$search_data = array('store_id' => $store_id);
+		$store_product = $this->storeModel->getStoreProduct($search_data)->result_array();
+		echo json_encode($store_product);
+	}
 
 
 	
