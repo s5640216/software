@@ -19,7 +19,9 @@
 								<select class="sel_area form-control">
 									<option>請選擇</option>
 								</select>
+								<button class="btnsearchstore btn btn-primary ">search</button>
 							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -31,13 +33,7 @@
 	</div>
 </div>
 
-<script>
-	$(function () {
-		// _load_store_list();
-		city = new City();
-
-	})
-	
+<script>	
 	function _load_store_list(city_id, area_id){
 		var data = null;
 		$.ajax({
@@ -49,6 +45,32 @@
 				area_id: area_id
 			},
 			success: function (res) {
+				$('.ajax_content').html(res);
+			}
+		});
+	}
+	$(document).ready(function() {
+		city = new City();
+		_ajax_get_store_list(null, null);
+		
+		$('.btnsearchstore').click(function(){
+			var city_id = $(this).parent().find('.sel_city :selected').attr('data-city_id');
+			var area_id = $(this).parent().find('.sel_area :selected').attr('data-area_id');
+			_ajax_get_store_list(city_id, area_id);
+		});
+	});
+	
+	function _ajax_get_store_list(city_id, area_id){
+		$.ajax({
+			url: '<?=base_url()?>store/store/ajax_get_store_list/view',
+			type: 'POST',
+			data:{
+				city_id: city_id,
+				area_id: area_id
+			},
+			dataType: 'html',
+			success: function (res) {
+				console.log(res);	
 				$('.ajax_content').html(res);
 			}
 		});
