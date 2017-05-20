@@ -8,7 +8,7 @@ class Store extends common {
 		//載入store_model
 		//如有要修改 路徑為\application\models\store\store_model.php
 		$this->load->model('store/store_model', 'storeModel');
-	}
+	}	
 
 	public function index() {
 		$this->layout->view('store/index');
@@ -19,15 +19,20 @@ class Store extends common {
 		$city_id = $this->input->post('city_id');
 		$area_id = $this->input->post('area_id');
 		$search_data = array('city_id' => $city_id, 'area_id' => $area_id);
-		$stores = $this->storeModel->getStore($search_data)->result_array();
-		echo json_encode($stores);
+		$this->data['stores'] = $this->storeModel->getStore($search_data);
+		// echo json_encode($stores);
+		
+		$this->load->view('store/store_list', $this->data);
 	}
 	
 	public function ajax_get_store_product_list(){
 		$store_id = $this->input->post('store_id');
 		$search_data = array('store_id' => $store_id);
-		$store_product = $this->storeModel->getStoreProduct($search_data)->result_array();
-		echo json_encode($store_product);
+		$this->data['stores'] = $this->storeModel->getStoreProduct($search_data);
+		print_r(search_data);
+	
+		//$this->load->view('store/store_list', $this->data);
+		//echo json_encode($store_product);
 	}
 
 
