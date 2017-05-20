@@ -62,7 +62,7 @@
 	
 	function _ajax_get_store_list(city_id, area_id){
 		$.ajax({
-			url: '<?=base_url()?>store/store/ajax_get_store_list',
+			url: '<?=base_url()?>store/store/ajax_get_store_list/view',
 			type: 'POST',
 			data:{
 				city_id: city_id,

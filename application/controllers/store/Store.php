@@ -15,26 +15,25 @@ class Store extends common {
 	}
 	
 	
-	public function ajax_get_store_list(){
+	public function ajax_get_store_list($type = 'select'){
 		$city_id = $this->input->post('city_id');
 		$area_id = $this->input->post('area_id');
 		$search_data = array('city_id' => $city_id, 'area_id' => $area_id);
-		$this->data['stores'] = $this->storeModel->getStore($search_data);
-		// echo json_encode($stores);
-		
-		$this->load->view('store/store_list', $this->data);
+		$stores = $this->storeModel->getStore($search_data);
+		if($type == 'select'){
+			echo json_encode($stores->result_array());
+			
+		}else if($type == 'view'){
+			$this->data['stores'] = $stores;
+			$this->load->view('store/store_list', $this->data);
+		}
 	}
 	
 	public function ajax_get_store_product_list(){
 		$store_id = $this->input->post('store_id');
 		$search_data = array('store_id' => $store_id);
-		$this->data['stores'] = $this->storeModel->getStoreProduct($search_data);
-		print_r(search_data);
-	
-		//$this->load->view('store/store_list', $this->data);
-		//echo json_encode($store_product);
+		$store_product = $this->storeModel->getStoreProduct($search_data)->result_array();
+		echo json_encode($store_product);
 	}
 
-
-	
 }
