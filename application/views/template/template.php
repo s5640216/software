@@ -74,9 +74,11 @@
             return '<?=base_url()?>';
         };
 	function logout(){
-		if(confirm("確定登出?")){
-			document.location.href= "<?=base_url();?>login/login/logout";
-		}
+		confirm_alert("確定登出?", function(e){
+			if(e){
+				document.location.href= "<?=base_url();?>login/login/logout";
+			} 
+		});
 	}
     // Closes the sidebar menu
     $("#menu-close").click(function(e) {

@@ -44,8 +44,8 @@ class Order extends common {
 	}
 	
 	public function get_receive_order_list(){
-		$city_id = ($this->input->post('city_id') != null)? $this->input->post('city_id'): true;
-		$area_id = ($this->input->post('area_id') != null)? $this->input->post('area_id'): true;;
+		$city_id = ($this->input->post('city_id') != null)? $this->input->post('city_id'): false;
+		$area_id = ($this->input->post('area_id') != null)? $this->input->post('area_id'): false;
 		
 		$search_data = array('city_id' => $city_id, 'area_id' => $area_id);
 		$this->data['orders'] = $this->orderModel->getReceiveOrder($search_data);

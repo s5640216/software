@@ -21,10 +21,12 @@ class Order_model extends CI_Model {
 		foreach ($search_data as $key => $value) {
             switch ($key) {
                 case 'city_id':
-                    $this->db->where('city_id', $value);
+					if($value != false)
+						$this->db->where('city_id', $value);
                     break;
                 case 'area_id':
-                    $this->db->where('area_id', $value);
+					if($value != false)
+						$this->db->where('area_id', $value);
                     break;
             }
         }

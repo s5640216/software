@@ -40,3 +40,15 @@ var toast = function (title, messages, status) {
 	}
 	toastr[status](messages, title);
 }
+
+var confirm_alert = function (message, callback){
+	alertify.set({ 
+		labels: {
+			ok     : "是",
+			cancel : "否"
+		} 
+	});
+	alertify.confirm(message, function (e) {
+		return callback(e);
+	});
+}
