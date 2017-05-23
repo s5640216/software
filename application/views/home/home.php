@@ -96,7 +96,7 @@
     <!-- Callout -->
     <aside class="callout">
         <div class="text-vertical-center">
-            <h1>Vertically Centered Text</h1>
+            <h1></h1>
         </div>
     </aside>
 
@@ -110,29 +110,33 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="portfolio-item">
+							 <h2>Deliver</h2>
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="<?=base_url('assets/home/img/portfolio-1.jpg');?>">
+                                    <img class="img-portfolio img-responsive" src="<?=base_url('assets/home/img/deliver.jpg');?>">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
+							 <h2>Shop</h2>
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="<?=base_url('assets/home/img/portfolio-2.jpg');?>">
+                                    <img class="img-portfolio img-responsive" src="<?=base_url('assets/home/img/shop.jpg');?>">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
+							 <h2>Convenient</h2>
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="<?=base_url('assets/home/img/portfolio-3.jpg');?>">
+                                    <img class="img-portfolio img-responsive" src="<?=base_url('assets/home/img/busy.jpg');?>">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="portfolio-item">
+							 <h2>Mutual benefit</h2>
                                 <a href="#">
-                                    <img class="img-portfolio img-responsive" src="<?=base_url('assets/home/img/portfolio-4.jpg');?>">
+                                    <img class="img-portfolio img-responsive" src="<?=base_url('assets/home/img/hand.jpg');?>">
                                 </a>
                             </div>
                         </div>
