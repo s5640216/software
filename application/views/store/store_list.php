@@ -14,7 +14,7 @@
 						<td><?=$store->name;?></td>
 						<td><?=$store->describe;?></td>
 						<td>
-							<button type="button" class="btn btn-primary btn-xs">檢視</button>
+							<button type="button" class="btnShowProduct btn btn-primary btn-xs">檢視</button>
 							<?if($this->session->userdata('purview') == PURVIEW_ADMIN):?>
 								<button type="button" class="btn btn-warning btn-xs">修改</button>
 								<button type="button" class="btnDelStore btn btn-danger btn-xs">刪除</button>
@@ -54,5 +54,10 @@
 				});
 			}
 		})
+	})
+	
+	$('.btnShowProduct').click(function(){
+		var store_id = $(this).parent().parent().attr('data-store_id');
+		window.location.href = base_url() + 'store/store/store_product/' + store_id;
 	})
 </script>

@@ -56,4 +56,18 @@ class Common extends CI_Controller {
 		}
 	}
 	
+	public function getProductStatusString($status){
+		switch($status){
+			case PRODUCT_SELL:
+				echo "販售中";
+				break;
+			case PRODUCT_STOP:
+				echo "停售中";
+				break;
+			case PRODUCT_WILL_SELL:
+				echo "即將上架";
+				break;
+		}
+	}
+	
 }

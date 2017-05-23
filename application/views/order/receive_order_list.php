@@ -12,7 +12,6 @@
 			<? if($orders->num_rows() > 0): ?>
 				<? foreach($orders->result() as $order): ?>
 					<tr data-order_id="<?=$order->order_id;?>">
-						<td><?=$order->name;?></td>
 						<td><?=$order->status;?></td>
 						<td><?=date('Y/m/d H:i:s',strtotime($order->order_date));?></td>
 						<td>

@@ -109,3 +109,14 @@ defined('ORDER_PROCESSED') OR define('ORDER_PROCESSED', 2); //處理中
 defined('ORDER_TRANSPORT') OR define('ORDER_TRANSPORT', 3); //運送中
 defined('ORDER_FINISH') OR define('ORDER_FINISH', 4); //訂單完成
 defined('ORDER_CANCEL') OR define('ORDER_CANCEL', 5); //訂單取消
+
+/*
+|--------------------------------------------------------------------------
+| Product statuc type
+|--------------------------------------------------------------------------
+|
+| Product statuc
+*/
+defined('PRODUCT_SELL') OR define('PRODUCT_SELL', 1); //販售中
+defined('PRODUCT_STOP') OR define('PRODUCT_STOP', 2); //停售中
+defined('PRODUCT_WILL_SELL') OR define('PRODUCT_WILL_SELL', 3); //即將上架

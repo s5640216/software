@@ -26,13 +26,13 @@ class Order extends common {
 	private function _get_member_order(){
 		$uid = $this->session->userdata('uid');
 		$this->data['orders'] = $this->orderModel->getMemberOrder($uid);
-		$this->load->view('order/member_order', $this->data);
+		$this->load->view('order/order_list', $this->data);
 	}
 	
 	private function _get_service_order(){
 		$uid = $this->session->userdata('uid');
 		$this->data['orders'] = $this->orderModel->getServiceOrder($uid);
-		$this->load->view('order/service_order', $this->data);
+		$this->load->view('order/order_list', $this->data);
 	}
 	
 	public function drop_order(){

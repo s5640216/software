@@ -34,9 +34,20 @@ class Store_model extends CI_Model {
 					if($value != false)
 						$this->db->where('product_id', $value);
                     break;
+				case 'status':
+					if($value != false)
+						$this->db->where('status', $value);
+                    break;
             }
         }
 		return $this->db->get('store_product');
+	}
+	
+	function getStoreAndProduct($store_id){
+		$this->db->select('*');
+		$this->db->join('store_product', 'store_info.store_id = store_product.store_id');
+		
+		return $this->db->get('store_info');
 	}
 	
 	function insert_store($data){
@@ -49,7 +60,24 @@ class Store_model extends CI_Model {
 		$this->db->delete('store_info');
 	}
 
+	function insert_store_product($data){
+		$this->db->insert('store_product', $data);
+	}
 	
+	function get_product_max_id($store_id){
+		$this->db->select('max(product_id) as product_id');
+		$this->db->where('store_id', $store_id);
+		return $this->db->get('store_product');
+	}
+	
+	function update_product($store_id, $product_id, $data){
+		$this->db->trans_start();
+        $this->db->where('store_id', $store_id);
+		$this->db->where('product_id', $product_id);
+        $this->db->update('store_product', $data);
+        $this->db->trans_complete();
+        return $this->db->trans_status();
+	}
 }
 
 ?>
