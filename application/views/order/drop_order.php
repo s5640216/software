@@ -56,10 +56,12 @@
 			var city_id = $(this).parent().find('.sel_city :selected').attr('data-city_id');
 			var area_id = $(this).find(':selected').attr('data-area_id');
 			_load_store_list(city_id, area_id);
+			var sel_product = $('.sel_product');
+			sel_product.empty();
+			sel_product.append("<option>請選擇</option>");
 		});
 		$('.sel_store').change(function(){
 			var store_id = $(this).find(':selected').attr('data-store_id');
-			
 			_load_store_product_list(store_id);
 		});
 		
@@ -117,12 +119,13 @@
 			},
 			success: function (data) {
 				sel_store.empty();
+				sel_store.append("<option>請選擇</option>");
 				if(data.length > 0){
 					data.forEach(function(store){
-						sel_store.append("<option>請選擇</option>");
 						sel_store.append("<option data-store_id=" + store.store_id + ">" + store.name +  "</option>");
 					})
 				} else {
+					sel_store.empty();
 					sel_store.append("<option>目前無店家資訊</option>");
 				}
 			}
@@ -140,12 +143,13 @@
 			},
 			success: function (data) {
 				sel_product.empty();
+				sel_product.append("<option>請選擇</option>");
 				if(data.length > 0){
 					data.forEach(function(product){
-						sel_product.append("<option>請選擇</option>");
 						sel_product.append("<option data-store_id=" + product.store_id + " data-product_id=" + product.product_id + ">" + product.product_name + "(" + product.price + "元)</option>");
 					})
 				} else {
+					sel_product.empty();
 					sel_product.append("<option>目前無商品資料</option>");
 				}
 			}

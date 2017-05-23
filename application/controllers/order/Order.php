@@ -26,13 +26,13 @@ class Order extends common {
 	private function _get_member_order(){
 		$uid = $this->session->userdata('uid');
 		$this->data['orders'] = $this->orderModel->getMemberOrder($uid);
-		$this->load->view('order/member_order', $this->data);
+		$this->load->view('order/order_list', $this->data);
 	}
 	
 	private function _get_service_order(){
 		$uid = $this->session->userdata('uid');
 		$this->data['orders'] = $this->orderModel->getServiceOrder($uid);
-		$this->load->view('order/service_order', $this->data);
+		$this->load->view('order/order_list', $this->data);
 	}
 	
 	public function drop_order(){
@@ -44,8 +44,8 @@ class Order extends common {
 	}
 	
 	public function get_receive_order_list(){
-		$city_id = ($this->input->post('city_id') != null)? $this->input->post('city_id'): true;
-		$area_id = ($this->input->post('area_id') != null)? $this->input->post('area_id'): true;;
+		$city_id = ($this->input->post('city_id') != null)? $this->input->post('city_id'): false;
+		$area_id = ($this->input->post('area_id') != null)? $this->input->post('area_id'): false;
 		
 		$search_data = array('city_id' => $city_id, 'area_id' => $area_id);
 		$this->data['orders'] = $this->orderModel->getReceiveOrder($search_data);

@@ -1,11 +1,16 @@
 <br>
 <div class="container">
 	<div class="row">
-		<p>控制器 controllers\store\Store.php修改，function為 index</p>
-		<p>頁面載入 views\store\index.php修改</p>
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				店家資訊
+				
+				<h3 class="panel-title pull-left">
+					店家資訊
+				</h3>
+				<?if($this->session->userdata('purview') == PURVIEW_ADMIN):?>
+					<button class="btn btn-info btn-xs pull-right" data-toggle="modal" data-target="#add_store_info_modal">新增店家</button>
+				<?endif;?>
+				<div class="clearfix"></div>
 			</div>
 			<div class="panel-body">
 				<div class="col-xs-12">
@@ -70,7 +75,6 @@
 			},
 			dataType: 'html',
 			success: function (res) {
-				console.log(res);	
 				$('.ajax_content').html(res);
 			}
 		});
