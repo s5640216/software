@@ -6,8 +6,8 @@ class Common extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 			date_default_timezone_set("Asia/Taipei");
-			$this->load->model('account/account_model', 'accountModel');
-			$this->load->model('address/address_model', 'addressModel');
+			$this->load->model('account/Account_model', 'accountModel');
+			$this->load->model('address/Address_model', 'addressModel');
 			$this->_check_is_login();
 			 $this->CI = & get_instance();
 	}

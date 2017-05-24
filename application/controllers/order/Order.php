@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-include_once APPPATH . '/controllers/common/common.php';
-class Order extends common {
+include_once APPPATH . '/controllers/common/Common.php';
+class Order extends Common {
 	
 	function __construct(){
 		parent::__construct();
 		//載入order_model
 		//如有要修改 路徑為\application\models\order\order_model.php
-		$this->load->model('order/order_model', 'orderModel');
-		$this->load->model('store/store_model', 'storeModel');
+		$this->load->model('order/Order_model', 'orderModel');
+		$this->load->model('store/Store_model', 'storeModel');
 	}
 
 	public function index() {

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-include_once APPPATH . '/controllers/common/common.php';
-class Admin extends common {
+include_once APPPATH . '/controllers/common/Common.php';
+class Admin extends Common {
 	
 	function __construct(){
 		parent::__construct();

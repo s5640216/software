@@ -6,8 +6,8 @@ class Login extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 			date_default_timezone_set("Asia/Taipei");
-			$this->load->model('account/account_model', 'accountModel');
-			$this->load->model('login/register_model', 'registerModel');
+			$this->load->model('account/Account_model', 'accountModel');
+			$this->load->model('login/Register_model', 'registerModel');
 			$this->_check_is_login();
 	}
 

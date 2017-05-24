@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-include_once APPPATH . '/controllers/admin/admin.php';
-class Account extends admin {
+include_once APPPATH . '/controllers/admin/Admin.php';
+class Account extends Admin {
 	
 	function __construct(){
 		parent::__construct();
