@@ -18,6 +18,7 @@ class Order_model extends CI_Model {
 		$this->db->select('order.*');
 		
 		$this->db->where('receive_uid', null);
+		$this->db->where('status', ORDER_WAIT);
 		foreach ($search_data as $key => $value) {
             switch ($key) {
                 case 'city_id':
@@ -35,7 +36,21 @@ class Order_model extends CI_Model {
     }
 	
 	function getOrder($order_id){
-		$this->db->select('*');
+		$this->db->select('order.*,
+							accounts.name,
+							accounts.email,
+							accounts.sex,
+							accounts.phone,
+							taiwan_city.city_name,
+							taiwan_area.area_name,
+							receive_account.name as receive_name,
+							receive_account.email as receive_email,
+							receive_account.sex as receive_sex,
+							receive_account.phone as receive_phone');
+		$this->db->join('accounts','accounts.uid = order.uid', 'LEFT');
+		$this->db->join('accounts as receive_account','receive_account.uid = order.receive_uid', 'LEFT');
+		$this->db->join('taiwan_city', 'taiwan_city.city_id = order.city_id', 'LEFT');
+		$this->db->join('taiwan_area', 'taiwan_area.area_id = order.area_id', 'LEFT');
 		$this->db->where('order_id', $order_id);
         return $this->db->get('order');
 	}
@@ -68,9 +83,30 @@ class Order_model extends CI_Model {
 	
 	function insert_order_detail($data){
 		$this->db->trans_start();
-		$this->db->insert('order_detail', $data);
+		$this->db->insert_batch('order_detail', $data);
 		$this->db->trans_complete();
         return $this->db->trans_status();
+	}
+	
+	function get_order_detail($order_id){
+		$this->db->select('order_detail.*,
+							store_product.*,
+							store_info.name as store_name,
+							store_city.city_name as store_city_name,
+							store_area.area_name as store_area_name,
+							(store_product.price * order_detail.amount)as sub_total');
+		
+		
+		$this->db->join('store_info', 'store_info.store_id = order_detail.store_id', 'LEFT');
+		$this->db->join('taiwan_city as store_city', 'store_city.city_id = store_info.city_id', 'LEFT');
+		$this->db->join('taiwan_area as store_area', 'store_area.area_id = store_info.area_id', 'LEFT');
+		$this->db->join('store_product','store_product.store_id = order_detail.store_id AND
+						store_product.product_id = order_detail.product_id', 'LEFT');
+		
+		$this->db->where('order_id', $order_id);
+        $this->db->order_by('order_detail.store_id', 'ASC');
+		$this->db->order_by('order_detail.product_id', 'ASC');
+		return $this->db->get('order_detail');
 	}
 	
 }
