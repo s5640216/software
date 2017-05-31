@@ -9,7 +9,7 @@ class Common extends CI_Controller {
 			$this->load->model('account/Account_model', 'accountModel');
 			$this->load->model('address/Address_model', 'addressModel');
 			$this->_check_is_login();
-			 $this->CI = & get_instance();
+			$this->CI = & get_instance();
 	}
 
 	public function index() {
@@ -52,6 +52,12 @@ class Common extends CI_Controller {
 				break;
 			case ORDER_CANCEL:
 				echo "取消";
+				break;
+			case ORDER_WAIT_FINISH:
+				echo "等待完成";
+				break;
+			case ORDER_WAIT_CANCEL:
+				echo "等待取消";
 				break;
 		}
 	}

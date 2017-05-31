@@ -84,6 +84,14 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
+/*
+|--------------------------------------------------------------------------
+| System constants
+|--------------------------------------------------------------------------
+|
+| System constants
+*/
+defined('ADDITIONAL_FEE') OR define('ADDITIONAL_FEE', 15); //額外費用(外送費)
 
 /*
 |--------------------------------------------------------------------------
@@ -109,7 +117,8 @@ defined('ORDER_PROCESSED') OR define('ORDER_PROCESSED', 2); //處理中
 defined('ORDER_TRANSPORT') OR define('ORDER_TRANSPORT', 3); //運送中
 defined('ORDER_FINISH') OR define('ORDER_FINISH', 4); //訂單完成
 defined('ORDER_CANCEL') OR define('ORDER_CANCEL', 5); //訂單取消
-
+defined('ORDER_WAIT_FINISH') OR define('ORDER_WAIT_FINISH', 6); //等待完成
+defined('ORDER_WAIT_CANCEL') OR define('ORDER_WAIT_CANCEL', 7); //等待取消
 /*
 |--------------------------------------------------------------------------
 | Product statuc type

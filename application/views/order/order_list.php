@@ -10,10 +10,10 @@
 		<tbody>
 			<? if($orders->num_rows() > 0): ?>
 				<? foreach($orders->result() as $order): ?>
-					<tr>
+					<tr data-order_id="<?=$order->order_id;?>">
 						<td><?=$this->CI->getOrderStatusString($order->status);?></td>
 						<td><?=date('Y/m/d H:i:s',strtotime($order->order_date));?></td>
-						<td><button type="button" class="btn btn-info btn-xs">查看</button></td>
+						<td><button type="button" class="btnDetail btn btn-info btn-xs">查看</button></td>
 					</tr>
 				<? endforeach; ?>
 			<? else: ?>
@@ -24,3 +24,10 @@
 		</tbody>
 	</table>
 </div>
+
+<script>
+	$('.btnDetail').click(function(){
+		var order_id = $(this).parent().parent().attr('data-order_id');
+		window.location = base_url() + "order/order/detail/" + order_id;
+	})
+</script>
