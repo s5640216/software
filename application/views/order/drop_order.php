@@ -112,7 +112,7 @@
 				warning_toast(null, '請選擇一項以上的商品');
 				return;
 			}
-			confirm_alert("確定接收此訂單?", function(e){
+			confirm_alert("確認成立訂單?", function(e){
 				if(e){
 					$.ajax({
 						"url": "<?=base_url();?>/order/order/do_drop_order",

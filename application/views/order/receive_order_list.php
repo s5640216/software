@@ -40,7 +40,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-				<button type="button" class="btnReceiveByModal btn btn-primary">接收</button>
+				<button type="button" class="btnReceiveByModal btn btn-primary" data-dismiss="modal">接收</button>
 			</div>
 		</div>
 	</div>
@@ -85,9 +85,6 @@
 					dataType: 'json',
 					data:{
 						order_id: order_id
-					},
-					beforeSend:function(){
-						$('#order_detail_modal').modal('hide');
 					},
 					success: function (data) {
 						if(data.status == "success"){

@@ -18,10 +18,10 @@
 			<li>
                 <a href="<?=base_url() . 'admin/account'?>">會員管理</a>
             </li>
-			<li>
+			<?/*<li>
                 <a href="<?=base_url() . 'admin/customer_service'?>">客服中心</a>
             </li>
-			
+			*/?>
 			<li>
                 <a href="javascript:logout()" type="submit">登出</a>
             </li>

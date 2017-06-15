@@ -18,9 +18,10 @@
 			<li>
                 <a href="<?=base_url() . 'order/order'?>">訂單紀錄</a>
             </li>
-			<li>
+			<?/*<li>
                 <a href="<?=base_url() . 'customer/customer_service'?>">聯絡客服</a>
             </li>
+			*/?>
 			<li>
                 <a href="javascript:logout()" type="submit">登出</a>
             </li>
