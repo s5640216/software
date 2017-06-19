@@ -8,7 +8,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>Stylish Portfolio - Start Bootstrap Theme</title>
+		<title>Delivery</title>
 		<?php include("css.php");?>
 		<!--script-->
 		<?php include("js.php");?>

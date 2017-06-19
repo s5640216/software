@@ -12,9 +12,9 @@
 			<li>
                 <a href="<?=base_url() . 'store/store'?>">店家資訊</a>
             </li>
-			<li>
+			<?/*<li>
                 <a href="<?=base_url() . 'admin/order'?>">訂單紀錄</a>
-            </li>
+            </li>*/?>
 			<li>
                 <a href="<?=base_url() . 'admin/account'?>">會員管理</a>
             </li>

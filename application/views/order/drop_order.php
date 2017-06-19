@@ -33,7 +33,7 @@
 									<option>請選擇</option>
 								</select>
 								<label>數量:</label>
-								<input class="amount" type="number" min="1" max="30" value="1">
+								<input class="amount" type="number" min="1" max="100" value="1">
 								<button type="button" class="btnSelectProduct btn btn-success btn-xs">選定</button>
 							</div>
 						</div>
@@ -142,6 +142,12 @@
 							product_id: product_id,
 							amount: amount};
 			var check = true;
+			
+			if(amount <= 0){
+				warning_toast(null, '數量不得小於一');
+				check = false;
+			}
+			
 			if(product_data.length > 0 && product_data[0].store_id != store_id){
 				warning_toast(null, '目前只接受一個店家的訂單');
 				check = false;
@@ -156,7 +162,7 @@
 			if(store_id > 0 && product_id > 0 && check == true){
 				$('#chosen_product').append("<tr data-store_id=" + store_id + " data-product_id=" + product_id + ">" +
 					"<td>" + product_name + "</td>" +
-					"<td><input class='selected_amount' type='number' min='1' max='30' value=" + amount + "></td>" + 
+					"<td><input class='selected_amount' type='number' min='1' max='100' value=" + amount + "></td>" + 
 					"<td><button type='button' class='btnDelete btn btn-danger btn-xs'>刪除</button></td>" + 
 				"</tr>");
 				product_data.push(product);

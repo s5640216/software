@@ -9,7 +9,7 @@ class Layout
     var $obj; 
     var $layout; 
     
-    function Layout($layout = "template/template") 
+    public function __construct($layout = "template/template")
     { 
         $this->obj =& get_instance(); 
         $this->layout = $layout; 
