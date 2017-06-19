@@ -78,6 +78,14 @@ class Store_model extends CI_Model {
         $this->db->trans_complete();
         return $this->db->trans_status();
 	}
+	
+	function update_store_info($store_id, $data){
+		$this->db->trans_start();
+        $this->db->where('store_id', $store_id);
+        $this->db->update('store_info', $data);
+        $this->db->trans_complete();
+        return $this->db->trans_status();
+	}
 }
 
 ?>

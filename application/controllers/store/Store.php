@@ -140,4 +140,34 @@ class Store extends Common {
 		$message = '商品狀態已改變';
 		echo json_encode(array('status' => $status, 'message' => $message));
 	}
+	
+	function modify_store_info(){
+		$store_id = $this->input->post('store_id');
+		$store_name = $this->input->post('store_name');
+		$store_describe = $this->input->post('store_describe');
+		$data = array(
+			'name' => $store_name,
+			'describe' => $store_describe
+		);
+		$res = $this->storeModel->update_store_info($store_id, $data);
+		$status = 'success';
+		$message = '店家資訊已變更';
+		echo json_encode(array('status' => $status, 'message' => $message));
+	}
+	
+	function modify_store_product(){
+		$store_id = $this->input->post('store_id');
+		$product_id = $this->input->post('product_id');
+		$product_name = $this->input->post('product_name');
+		$product_price = $this->input->post('product_price');
+		
+		$product_data = array(
+			'product_name' => $product_name,
+			'price' => $product_price
+		);
+		$res = $this->storeModel->update_product($store_id, $product_id, $product_data);
+		$status = 'success';
+		$message = '商品資訊已改變';
+		echo json_encode(array('status' => $status, 'message' => $message));
+	}
 }

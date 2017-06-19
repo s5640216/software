@@ -58,6 +58,10 @@
 			warning_toast(null, "請輸入商品單價");
 			return;
 		}
+		if(product_price <= 0){
+			warning_toast(null, '價格請輸入大於0');
+			return;
+		}
 		$.ajax({
 			url: '<?=base_url()?>store/store/ajax_add_store_product',
 			type: 'POST',
