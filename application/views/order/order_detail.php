@@ -152,7 +152,7 @@
 							<? if($tmp_store_id != $order_detail->store_id):?>
 							<?$tmp_store_id = $order_detail->store_id;?>
 							<tr class="success">
-								<th colspan="3"><?=$order_detail->store_city_name . $order_detail->store_area_name;?></th>
+								<th colspan="3"><?=$order_detail->store_city_name . $order_detail->store_area_name . " " . $order_detail->store_name;?></th>
 							</tr>
 							<? endif; ?>
 							<tr>
